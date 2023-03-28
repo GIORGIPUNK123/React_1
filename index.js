@@ -16,15 +16,11 @@ const stringsArr = [
 ];
 
 const myObj = stringsArr.reduce((acc, curr) => {
-  if (!acc[curr]) {
-    acc[curr] = 1;
-  } else {
-    acc[curr]++;
-  }
+  acc[curr] = acc[curr] ? acc[curr] + 1 : 1;
   return acc;
 }, {});
 
-// console.log(myObj);
+console.log(myObj);
 
 // 3
 class Car {
@@ -67,10 +63,10 @@ class Car {
 const car1 = new Car('BMW', 'M5cs');
 car1.accelerate(10);
 car1.brake(50);
-console.log('car1: ', car1.status());
+// console.log('car1: ', car1.status());
 
 // 4
-const addAsync = async (x, y) =>
+const addAsync = (x, y) =>
   new Promise((resolve, reject) => {
     typeof x === 'number' && typeof y === 'number'
       ? resolve(x + y)
